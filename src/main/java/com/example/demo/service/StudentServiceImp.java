@@ -6,7 +6,7 @@ import com.example.demo.repository.StudentRep;
 import java.util.List;
 import java.util.Optional;
 
-public class StudentSetvice {
+public class StudentServiceImp {
     private StudentRep studentRep;
 
     public Student save(Student student){
