@@ -2,14 +2,12 @@ package com.example.demo.domain;
 
 import com.sun.istack.NotNull;
 import lombok.*;
+import org.hibernate.validator.constraints.UniqueElements;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 
-@Data
-@AllArgsConstructor
-@RequiredArgsConstructor
-@NoArgsConstructor
+@Entity(name = "student")
 public class Student {
 
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -17,19 +15,22 @@ public class Student {
     @Column(name = "id")
     Long id;
 
-    @Column(name = "FirstName")
-    @NotNull
-    @NotBlank
-    String FirstName;
-
-    @Column(name = "LastName")
-    @NotNull
-    @NotBlank
-    String LastName;
-
-    public Student(Long id, @NotBlank String firstName, @NotBlank String lastName) {
+    public Student(Long id, @NotBlank String email, @NotBlank String password) {
         this.id = id;
-        FirstName = firstName;
-        LastName = lastName;
+        this.email = email;
+        this.password = password;
     }
+
+    @UniqueElements
+    @Column(name = "email")
+    @NotNull
+    @NotBlank
+    String email;
+
+    @Column(name = "password")
+    @NotNull
+    @NotBlank
+    String password;
+
+
 }

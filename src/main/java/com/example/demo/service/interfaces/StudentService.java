@@ -1,4 +1,4 @@
-package com.example.demo.service;
+package com.example.demo.service.interfaces;
 
 import com.example.demo.domain.Student;
 import org.springframework.stereotype.Service;
@@ -15,4 +15,5 @@ public interface StudentService {
     public void deleteall();
     public List<Student> findAll();
     public Optional<Student> find(Long id);
+    public Optional<Student> findByEmail(String email);
     }
