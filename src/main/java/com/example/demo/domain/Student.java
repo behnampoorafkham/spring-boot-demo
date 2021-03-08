@@ -1,20 +1,17 @@
 package com.example.demo.domain;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 
-@Entity
-@Table(name = "student")
-@Getter
-@Setter
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class Student {
+
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Id
+    @Column(name = "id")
     Long id;
 
     @Column(name = "FirstName")
